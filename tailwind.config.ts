@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter var', 'Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -84,11 +88,65 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { 
+						opacity: '0' 
+					},
+					'100%': { 
+						opacity: '1' 
+					},
+				},
+				'fade-up': {
+					'0%': { 
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': { 
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+				},
+				'slide-in': {
+					'0%': { 
+						transform: 'translateX(-10px)',
+						opacity: '0' 
+					},
+					'100%': { 
+						transform: 'translateX(0)',
+						opacity: '1' 
+					},
+				},
+				'scale-in': {
+					'0%': { 
+						transform: 'scale(0.97)',
+						opacity: '0' 
+					},
+					'100%': { 
+						transform: 'scale(1)',
+						opacity: '1' 
+					},
+				},
+				'wave': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
+					'100%': { transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+				'fade-up': 'fade-up 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+				'slide-in': 'slide-in 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+				'scale-in': 'scale-in 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+				'wave': 'wave 1.5s infinite',
+			},
+			transitionTimingFunction: {
+				'spring': 'cubic-bezier(0.4, 0, 0.2, 1)',
+			},
+			backdropBlur: {
+				'xs': '2px',
 			}
 		}
 	},
